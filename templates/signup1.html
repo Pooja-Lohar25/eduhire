@@ -1,0 +1,154 @@
+<html>
+
+<head>
+    <title>Registration</title>
+    <style>
+        .btn {
+            background-color: blue;
+            font-size: 16px;
+            width: 250px;
+            
+        }
+
+        .btn:hover {
+            background-color: rgb(75, 73, 170);
+        }
+
+        body {
+            background-image: url(33.jpg);
+        }
+
+        .required.required:after {
+            content: "*";
+            color: red;
+        }
+
+        table td {
+            border: 0px solid black;
+            border-spacing: 1em 0;
+
+        }
+    </style>
+
+<body>
+    <center>
+        <form action="register" method="post">
+            {% csrf_token %}
+        <fieldset style="width:50%" ; position:absolute; align="center" ;>
+            
+            <table border="0" width="480px" cellpadding="2" cellspacing="15" align="center">
+
+
+
+
+                <tr>
+                    <td class="required">First Name</td>
+                    <td class="required">Last Name</td>
+                    <td class="required">Your Email</td>
+                    <td class="required">Mobile Number</td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" name="fname" required placeholder="Enter your first name"></td>
+                    <td><input type="text" name="lname" required placeholder="Enter your Last name"></td>
+                    <td><input type="email" name="email" required placeholder="abc@gmail.com"></td>
+                    <td><input type="number" name="no." required placeholder="+91"></td>
+                </tr>
+
+                <tr>
+                    <td class="required">Create Password</td>
+                    <td class="required">Confirm Password</td>
+                    <td class="required">State</td>
+                    <td class="required">City</td>
+                </tr>
+                <tr>
+                    <td><input type="password" name="pass" required placeholder="Minimum 8 characters"></td>
+                    <td><input type="confirm password" name="cpass" required placeholder="Minimum 8 characters "></td>
+                    <td><select id="states">
+
+
+                            <option value="s1">Select states </option>
+                            <option value="s2">Madhya Pradesh </option>
+                            <option value="s3">Gujarat </option>
+                            <option value="s4">Karnataka </option>
+                            <option value="s5">Andhra Pradesh </option>
+                            <option value="s6">Chattisgarh </option>
+                            <option value="s7">Maharashtra </option>
+                            <option value="s8">Jharkhand </option>
+                            <option value="s9">TamilNadu </option>
+                        </select></td>
+                    <td><select id="city">
+                            <option value="c1">Enter city</option>
+                            <option value="c2">Bhopal </option>
+
+                        </select></td>
+                </tr>
+
+                <tr>
+                    <td>Job Title</td>
+                    <td>Current Drawn Package </td>
+                    <td>Expected Package </td>
+                </tr>
+                <tr>
+
+                    <td><select id="Job Title">
+                            <option value="j1">Select Title</option>
+                            <option value="j2">Principal </option>
+                            <option value="j3">Administrator </option>
+                            <option value="j4">Faculty </option>
+                        </select></td>
+
+                    <td><select id="Current Drawn Package">
+                            <option value="d1">Select Current Salary </option>
+                            <option value="d2">0 to 10,000 </option>
+                            <option value="d3">10,000 to 20,000 </option>
+                            <option value="d4">20,000 to 30,000 </option>
+                        </select></td>
+
+                    <td><select id="Expected Package">
+                            <option value="e1">Select Expected Salary</option>
+                            <option value="e2">0 to 10,000</option>
+                            <option value="e3">10,000 to 20,000</option>
+                            <option value="e4">20,000 to 30,000</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Upload Resume</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                            <input type="file" id="myFile" name="filename">
+
+                    </td>
+
+                </tr>
+
+            </table>
+        
+
+
+
+            <div class="tacbox">
+                <input id="checkbox" type="checkbox" />
+                <label for="checkbox">I agreed to the <a href="terms and conditions">Terms and Conditions</a> governing
+                    the use of gammatech.com</label>
+            </div></br>
+            <div>
+                <button type="Submit" class="btn" style="color:aliceblue">Register</button>
+            </div>
+        </form>
+            <div class="container signin">
+                <p>Already have an account?
+                    <a href="login">Sign In</a>
+                </p>
+            </div>
+    </center>
+    {% for msg in messages %}
+        <script> alert('{{msg}}') </script>
+    {% endfor %}
+
+</body>
+</head>
+
+</html>
